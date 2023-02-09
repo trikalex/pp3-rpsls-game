@@ -20,11 +20,11 @@ class Variables:
 
     # ASCII graphics dictionary
     graphics = {
-        "rock": "R",
-        "paper": "P",
-        "scissors": "SC",
-        "lizard": "L",
-        "spock": "SP",
+        "rock": "🧱",
+        "paper": "🧻",
+        "scissors": "✂️",
+        "lizard": "🦎",
+        "spock": "🖖",
     }
 
     # Scoreboard
@@ -89,21 +89,40 @@ def play_again():
                 print("Invalid choice! Please try again.")
 
 
+def display_rules():
+        print("Rock Paper Scissor Lizard and Spock...\n"
+            "===========================================\n"
+            "Welcome to the game!\n"
+            "==========================================="
+        )
+        print(
+            "Rules are pretty simple..."
+        )
+        print(
+            "===========================================\n"
+            "Rock crushes Scissors, Rock crushes Lizard, \n"
+            "Paper covers Rock, Paper disproves Spock, \n"
+            "Scissors decapitate Lizard, Scissors cuts Paper, \n"
+            "Lizard poisons Spock, Lizard eats Paper,\n"
+            "Spock smashes Scissors, Spock vaporizes Rock.\n"
+            "==========================================="
+        )
+
 def load_game():
     while True:
         reset_terminal()
         player = input(
             "Please choose an option:\n"
-            "1 - for instr;\n"
-            "2 - play game;\n"
-            "3 - quits!:\n"
+            "- Choose 1 for instructions!\n"
+            "- Choose 2 for starting the game!\n"
+            "- Choose 3 for quiting the game!\n"
         )
         options = ['1', '2', '3']
         if player in options:
             if player == '1':
                 reset_terminal()
-                print('call instr function')
-                input("Press enter to return back to the main menu!")
+                display_rules()
+                input("Please press enter to return back to the main menu!")
 
             elif player == '2':
                 while True:
