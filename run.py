@@ -77,7 +77,6 @@ def play_again():
     if Variables.scoreboard["computer"] >= 10 or Variables.scoreboard["player"] >= 10:
         return False
     else:
-
         while True:
             again = input("Do you want to play again? (yes/no) ").lower()
             if again[0] == "y":
