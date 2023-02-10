@@ -123,7 +123,6 @@ def load_game():
                 reset_terminal()
                 display_rules()
                 input("Please press enter to return back to the main menu!")
-
             elif player == '2':
                 while True:
                     play_game()
