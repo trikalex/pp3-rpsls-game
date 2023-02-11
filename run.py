@@ -1,6 +1,5 @@
 import random
 import os
-from termcolor import colored
 
 
 class Variables:
