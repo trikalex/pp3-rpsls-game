@@ -22,7 +22,7 @@ class Variables:
     graphics = {
         "rock": "🧱",
         "paper": "🧻",
-        "scissors": "✂️",
+        "scissors": "✂️ ",
         "lizard": "🦎",
         "spock": "🖖",
     }
@@ -74,15 +74,19 @@ def display_scoreboard():
 
 
 def play_again():
-    if Variables.scoreboard["computer"] >= 10 or Variables.scoreboard["player"] >= 10:
+    if Variables.scoreboard["computer"] >= 5 or Variables.scoreboard["player"] >= 5:
         return False
     else:
         while True:
-            again = input("Do you want to play again? (yes/no) ").lower()
+            again = input("Do you want to play again? (yes/no)\n"
+            "===========================================\n"
+            "(please note the score will reset if 'no')"
+            ).lower()
             if again[0] == "y":
                 return True
             elif again[0] == "n":
-                scoreboard = True
+                for key in Variables.scoreboard:
+                    Variables.scoreboard[key] = 0
                 return False
             else:
                 reset_terminal()
@@ -94,7 +98,7 @@ def display_rules():
             "===========================================\n"
         )
         print(
-            "Rules are pretty simple..."
+            "Rules are pretty simple:"
         )
         print(
             "===========================================\n"
@@ -111,7 +115,7 @@ def load_game():
         reset_terminal()
         player = input(
             "Rock Paper Scissor Lizard and Spock...\n"
-            "🧱; 🧻; ✂️; 🦎; 🖖;\n"
+            "🧱  🧻  ✂️   🦎  🖖 \n"
             "===========================================\n"
             "Welcome to the game!\n"
             "===========================================\n"
@@ -134,10 +138,10 @@ def load_game():
                     if not again:
                         break
             elif player == '3':
-                print('Thank you for playing')
+                print('Thank you for playing!')
                 break
         else:
-            print("Invalid choice! Please try again.")
+            print("Invalid choice, please try again!")
 
 
 load_game()
