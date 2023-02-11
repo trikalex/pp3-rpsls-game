@@ -81,7 +81,8 @@ def play_again():
             again = input("Do you want to play again? (yes/no) ").lower()
             if again[0] == "y":
                 return True
-            elif again == "n":
+            elif again[0] == "n":
+                scoreboard = True
                 return False
             else:
                 reset_terminal()
@@ -91,8 +92,6 @@ def play_again():
 def display_rules():
         print("Rock Paper Scissor Lizard and Spock...\n"
             "===========================================\n"
-            "Welcome to the game!\n"
-            "==========================================="
         )
         print(
             "Rules are pretty simple..."
@@ -111,7 +110,13 @@ def load_game():
     while True:
         reset_terminal()
         player = input(
+            "Rock Paper Scissor Lizard and Spock...\n"
+            "🧱; 🧻; ✂️; 🦎; 🖖;\n"
+            "===========================================\n"
+            "Welcome to the game!\n"
+            "===========================================\n"
             "Please choose an option:\n"
+            "===========================================\n"
             "- Choose 1 for instructions!\n"
             "- Choose 2 for starting the game!\n"
             "- Choose 3 for quiting the game!\n"
