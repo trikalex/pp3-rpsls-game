@@ -1,5 +1,6 @@
 import random
 import os
+from termcolor import colored
 
 
 class Variables:
@@ -95,14 +96,13 @@ def play_again():
 
 def display_rules():
         print("Rock Paper Scissor Lizard and Spock...\n"
-            "===========================================\n"
-        )
+            "===========================================\n")
         print(
             "Rules are pretty simple:"
         )
         print(
             "===========================================\n"
-            "Rock crushes Scissors, Rock crushes Lizard, \n"
+            "Rock crushes Scissors, Rock crushes Lizard, \n", "dark grey"
             "Paper covers Rock, Paper disproves Spock, \n"
             "Scissors decapitate Lizard, Scissors cuts Paper, \n"
             "Lizard poisons Spock, Lizard eats Paper,\n"
@@ -110,6 +110,7 @@ def display_rules():
             "==========================================="
         )
 
+        
 def load_game():
     while True:
         reset_terminal()
