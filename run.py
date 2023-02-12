@@ -9,6 +9,15 @@ class Variables:
     # Game options list
     options = ["rock", "paper", "scissors", "lizard", "spock"]
 
+    # Options dictionary
+    options_dict = {
+        1: "rock",
+        2: "paper",
+        3: "scissors",
+        4: "lizard",
+        5: "spock"
+    }
+
     # Winning combinations dictionary
     win_combis = {
         "rock": ["scissors", "lizard"],
@@ -41,15 +50,21 @@ def reset_terminal():
 def play_game():
     while True:
         reset_terminal()
-        player = input("Choose one: Rock, Paper, Scissors, Lizard, or Spock: ").lower()
+        player_num = input(
+            "Choose one by number: \n"
+            "[1] for Rock, [2] for Paper,"
+            "[3] for Scissors, [4] for Lizard, or [5] for Spock: "
+        )
         comp = random.choice(Variables.options)
 
         # Check if the player's choice is valid
-        if player in Variables.options:
+        if player_num.isdigit() and int(player_num) in Variables.options_dict:
+            player = Variables.options_dict[int(player_num)].lower()
             break
         else:
             print("Invalid choice! Please try again.")
             print('=====================================')
+
 
     # Compare player's choice with comp's choice
     if comp in Variables.win_combis[player]:
@@ -79,10 +94,13 @@ def play_again():
     else:
         while True:
             again = input("Do you want to play again? (yes/no)\n"
-            "===========================================\n"
-            "(please note the score will reset if 'no')"
-            ).lower()
-            if again[0] == "y":
+             "===========================================\n"
+             "(please note the score will reset if 'no') "
+                ).lower()
+            if len(again) == 0:
+                reset_terminal()
+                print("Invalid choice! Please try again.")
+            elif again[0] == "y":
                 return True
             elif again[0] == "n":
                 for key in Variables.scoreboard:
@@ -101,7 +119,7 @@ def display_rules():
         )
         print(
             "===========================================\n"
-            "Rock crushes Scissors, Rock crushes Lizard, \n", "dark grey"
+            "Rock crushes Scissors, Rock crushes Lizard, \n"
             "Paper covers Rock, Paper disproves Spock, \n"
             "Scissors decapitate Lizard, Scissors cuts Paper, \n"
             "Lizard poisons Spock, Lizard eats Paper,\n"
