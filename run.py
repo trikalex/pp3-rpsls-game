@@ -91,7 +91,6 @@ def display_scoreboard():
     print('=====================================')
 
 
-
 def play_again():
     if Variables.scoreboard["computer"] >= 5 or Variables.scoreboard["player"] >= 5:
         return False
@@ -115,6 +114,7 @@ def play_again():
                 print("Invalid choice! Please try again.")
 
 
+# Win or Loose situation function 
 def end_game():
     if Variables.scoreboard["player"] == 5:
         reset_terminal()
