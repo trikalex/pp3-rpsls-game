@@ -51,7 +51,7 @@ def play_game():
     while True:
         reset_terminal()
         player_num = input(
-            "Choose one by number: \n"
+            "Choose an option by number or by name: \n"
             "[1] for Rock, [2] for Paper,"
             "[3] for Scissors, [4] for Lizard, or [5] for Spock: "
         )
@@ -60,6 +60,9 @@ def play_game():
         # Check if the player's choice is valid
         if player_num.isdigit() and int(player_num) in Variables.options_dict:
             player = Variables.options_dict[int(player_num)].lower()
+            break
+        elif player_num.lower() in [value.lower() for value in Variables.options_dict.values()]:
+            player = player_num.lower()
             break
         else:
             print("Invalid choice! Please try again.")
@@ -88,6 +91,7 @@ def display_scoreboard():
     print('=====================================')
 
 
+
 def play_again():
     if Variables.scoreboard["computer"] >= 5 or Variables.scoreboard["player"] >= 5:
         return False
@@ -109,6 +113,34 @@ def play_again():
             else:
                 reset_terminal()
                 print("Invalid choice! Please try again.")
+
+
+def end_game():
+    if Variables.scoreboard["player"] == 5:
+        reset_terminal()
+        print(
+            "YOU WON!!!\n"
+            "===========================================\n"
+            "Congratiulations!\n"
+            "===========================================\n"
+        )
+        display_scoreboard()
+        input("Please press enter to return to the main menu!")
+    elif Variables.scoreboard["computer"] == 5:
+        reset_terminal()
+        print(
+            "DEFEAT!\n"
+            "===========================================\n"
+            "Better luck next time!\n"
+            "===========================================\n"
+            "Please press enter to return to the main menu!"
+        )
+        display_scoreboard()
+        input("Please press enter to return to the main menu!")
+# while True:
+#     if Variables.scoreboard["player"] == 5 or Variables.scoreboard["computer"] == 5:
+#         end_game()
+#         break
 
 
 def display_rules():
