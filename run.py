@@ -2,6 +2,7 @@ import random
 import os
 
 
+# Defining game variables
 class Variables:
     """
     Game variables, winning combinatiions, graphics and scoreboard
@@ -92,7 +93,7 @@ def display_scoreboard():
 
 
 # Keeping the score, prompting the player to play again 'y/n'
-# And calling the end_game() function for the winner 
+# Calling the end_game() function for the winner 
 def play_again():
     if Variables.scoreboard["computer"] >= 5 or Variables.scoreboard["player"] >= 5:
         end_game()
@@ -140,6 +141,7 @@ def end_game():
         input("Please press enter to return to the main menu!")
 
 
+# From the menu 1st option will display the game rules
 def display_rules():
         print("Rock Paper Scissor Lizard and Spock...\n"
             "===========================================\n")
@@ -156,7 +158,9 @@ def display_rules():
             "==========================================="
         )
 
-        
+
+# Game load function
+# Display menu options for user 
 def load_game():
     while True:
         reset_terminal()
