@@ -1,5 +1,6 @@
 import random
 import os
+import sys
 
 
 # Defining game variables
@@ -62,105 +63,115 @@ def play_game():
         if player_num.isdigit() and int(player_num) in Variables.options_dict:
             player = Variables.options_dict[int(player_num)].lower()
             break
-        elif player_num.lower() in [value.lower() for value in Variables.options_dict.values()]:
+        elif player_num.lower() in [value.lower() for value in Variables.options_dict.values()]:  # noqa
             player = player_num.lower()
             break
         else:
             print("Invalid choice! Please try again.")
             print('=====================================')
-
+    reset_terminal()
 
     # Compare player's choice with comp's choice
     if comp in Variables.win_combis[player]:
-        print(f"You won! {Variables.graphics[player]} beats {Variables.graphics[comp]}.")
+        print(
+            "You won! "
+            f"{Variables.graphics[player]} beats {Variables.graphics[comp]}."
+        )
         Variables.scoreboard["player"] += 1
     elif player == comp:
-        print(f"That's a draw! Both players chose {Variables.graphics[player]}.")
+        print(
+            "That's a draw! "
+            f"Both players chose {Variables.graphics[player]}."
+        )
     else:
-        print(f"You lost! {Variables.graphics[comp]} beats {Variables.graphics[player]}.")
+        print(
+            "You lost! "
+            f"{Variables.graphics[comp]} beats {Variables.graphics[player]}."
+        )
         Variables.scoreboard["computer"] += 1
-    display_scoreboard()
 
 
-# Scoreboard function
 def display_scoreboard():
+    """
+    Scoreboard function
+    """
     print('Scoreboard:')
     print('=====================================')
     print(f"Player: {Variables.scoreboard['player']}")
     print('=====================================')
     print(f"Computer: {Variables.scoreboard['computer']}")
     print('=====================================')
+    if Variables.scoreboard["computer"] < 5 and Variables.scoreboard["player"] < 5:  # noqa
+        input('Please press enter to continue!')
 
 
 # Keeping the score, prompting the player to play again 'y/n'
-# Calling the end_game() function for the winner 
+# Calling the end_game() function for the winner
 def play_again():
-    if Variables.scoreboard["computer"] >= 5 or Variables.scoreboard["player"] >= 5:
-        end_game()
-    else:
-        while True:
-            again = input("Do you want to play again? (yes/no)\n"
-             "===========================================\n"
-             "(please note the score will reset if 'no') "
-                ).lower()
-            if len(again) == 0:
-                reset_terminal()
-                print("Invalid choice! Please try again.")
-            elif again[0] == "y":
-                return True
-            elif again[0] == "n":
-                for key in Variables.scoreboard:
-                    Variables.scoreboard[key] = 0
-                return False
-            else:
-                reset_terminal()
-                print("Invalid choice! Please try again.")
+    while True:
+        again = input(
+            "Do you want to play again? (yes/no)\n"
+        ).lower()
+        if len(again) == 0:
+            reset_terminal()
+            print("Invalid choice! Please try again.")
+        elif again[0] == "y":
+            for key in Variables.scoreboard:
+                Variables.scoreboard[key] = 0
+            return True
+        elif again[0] == "n":
+            reset_terminal()
+            print('Thank you for playing!')
+            sys.exit()
+        else:
+            reset_terminal()
+            print("Invalid choice! Please try again.")
 
 
 # Win or Loose situation function
 def end_game():
+    reset_terminal()
     if Variables.scoreboard["player"] == 5:
-        reset_terminal()
         print(
             "YOU WON!!!\n"
             "===========================================\n"
             "Congratiulations!\n"
             "==========================================="
         )
-        display_scoreboard()
-        input("Please press enter to return to the main menu!")
     else:
-        reset_terminal()
         print(
             "DEFEAT!\n"
             "===========================================\n"
             "Better luck next time!\n"
             "==========================================="
         )
-        display_scoreboard()
-        input("Please press enter to return to the main menu!")
+    display_scoreboard()
 
 
-# From the menu 1st option will display the game rules
 def display_rules():
-        print("Rock Paper Scissor Lizard and Spock...\n"
-            "===========================================\n")
-        print(
-            "Rules are pretty simple:"
-        )
-        print(
-            "===========================================\n"
-            "Rock crushes Scissors, Rock crushes Lizard, \n"
-            "Paper covers Rock, Paper disproves Spock, \n"
-            "Scissors decapitate Lizard, Scissors cuts Paper, \n"
-            "Lizard poisons Spock, Lizard eats Paper,\n"
-            "Spock smashes Scissors, Spock vaporizes Rock.\n"
-            "==========================================="
-        )
+    """
+    From the menu 1st option will display the game rules
+    """
+    print(
+        "Rock Paper Scissor Lizard and Spock...\n"
+        "===========================================\n"
+    )
+    print(
+        "Rules are pretty simple:"
+    )
+    print(
+        "===========================================\n"
+        "Rock crushes Scissors, Rock crushes Lizard, \n"
+        "Paper covers Rock, Paper disproves Spock, \n"
+        "Scissors decapitate Lizard, Scissors cuts Paper, \n"
+        "Lizard poisons Spock, Lizard eats Paper,\n"
+        "Spock smashes Scissors, Spock vaporizes Rock.\n"
+        "==========================================="
+    )
 
 
 # Game load function
-# Display menu options for user 
+# Display menu options for user
 def load_game():
     while True:
         reset_terminal()
@@ -184,13 +195,17 @@ def load_game():
                 input("Please press enter to return back to the main menu!")
             elif player == '2':
                 while True:
-                    play_game()
+                    while Variables.scoreboard["computer"] < 5 and Variables.scoreboard["player"] < 5:  # noqa
+                        play_game()
+                        display_scoreboard()
+                    end_game()
                     again = play_again()
                     if not again:
                         break
             elif player == '3':
+                reset_terminal()
                 print('Thank you for playing!')
-                break
+                sys.exit()
         else:
             print("Invalid choice, please try again!")
 
