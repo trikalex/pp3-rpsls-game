@@ -91,9 +91,11 @@ def display_scoreboard():
     print('=====================================')
 
 
+# Keeping the score, prompting the player to play again 'y/n'
+# And calling the end_game() function for the winner 
 def play_again():
     if Variables.scoreboard["computer"] >= 5 or Variables.scoreboard["player"] >= 5:
-        return False
+        end_game()
     else:
         while True:
             again = input("Do you want to play again? (yes/no)\n"
@@ -114,7 +116,7 @@ def play_again():
                 print("Invalid choice! Please try again.")
 
 
-# Win or Loose situation function 
+# Win or Loose situation function
 def end_game():
     if Variables.scoreboard["player"] == 5:
         reset_terminal()
@@ -122,25 +124,20 @@ def end_game():
             "YOU WON!!!\n"
             "===========================================\n"
             "Congratiulations!\n"
-            "===========================================\n"
+            "==========================================="
         )
         display_scoreboard()
         input("Please press enter to return to the main menu!")
-    elif Variables.scoreboard["computer"] == 5:
+    else:
         reset_terminal()
         print(
             "DEFEAT!\n"
             "===========================================\n"
             "Better luck next time!\n"
-            "===========================================\n"
-            "Please press enter to return to the main menu!"
+            "==========================================="
         )
         display_scoreboard()
         input("Please press enter to return to the main menu!")
-# while True:
-#     if Variables.scoreboard["player"] == 5 or Variables.scoreboard["computer"] == 5:
-#         end_game()
-#         break
 
 
 def display_rules():
@@ -171,9 +168,9 @@ def load_game():
             "===========================================\n"
             "Please choose an option:\n"
             "===========================================\n"
-            "- Choose 1 for instructions!\n"
-            "- Choose 2 for starting the game!\n"
-            "- Choose 3 for quiting the game!\n"
+            "- Choose [1] for instructions!\n"
+            "- Choose [2] for starting the game!\n"
+            "- Choose [3] for quiting the game!\n"
         )
         options = ['1', '2', '3']
         if player in options:
