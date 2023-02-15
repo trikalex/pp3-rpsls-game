@@ -18,7 +18,7 @@
 	- When "Run Program" is pressed in the Heroku terminal the game is launched and it will display the menu screen with:
 	- The game title on top + the representing graphic emojis
 	- A welcome message
-	- A three options menu for the player
+	- A prompt to choose one of the three options in the Player menu
 
 ![Launch-menu](/documentation/app/launchgame_menu.png)
 
@@ -31,25 +31,35 @@
 
 ![Game-play1](/documentation/app/gameplay1.png)
 
-- The user will be prompted to sellect one of the five options (Rock Paper Scissors Lizzard or Spock) either by numeric key or by typing the name of the selected option
+- The user will be prompted to sellect one of the five options (Rock Paper Scissors Lizzard or Spock) either by numeric key or by typing the name of the selected option (not case sensitive)
 - Once an option was selected, the computer will generate a random choice against the player and the Scoreboard of the round will be displayed, showing the sellected moves, the score and wether the Player won or lost the round
 
 ![Game-play](/documentation/app/gameplay.png)
 
 - In order to continue, the Player will have to hit enter after each round
-- Some of the rounds will be a "Draw" which will obviously keep te score the same, so the game will continue
+- Some of the rounds will be a "Draw" which will keep te score the same, so the game will continue until the user or the computer will win the round
 
 ![Draw](/documentation/app/draw.png)
 
-
+- Once the Player reaches a score of 5 against the Computer the end_game function is called printing the winner message! 
 
 ![Winner](documentation/app/winner.png)
 
+- In case the Computer wins the game, a "DEFEAT!" message is printed to the terminal 
+
 ![Looser](documentation/app/loser.png)
 
+- Once a game has ended the user will be prompted to sellect either to keep playing (y/n) or to quit the game
+- Selecting "y", will reset the scoreboard and the game will start again from the beginning
+- Selecting "n" will exit the game and will print a "Thank you for playing!" message 
+
 ![Game-end](documentation/app/game_end.png)
-- 
-- 
+
+- Selecting anythig else than "yes/no" in the end of the game will trigger an error message that will keep the user in a loop untill one of the expected answers is provided
+
+![Error_message](documentation/app/error.png)
+
+- One small last cool feature that is worth mentioning is the implementation of a favicon that displays a miniature schematic of the 5 choises of the game on the browser tab
 
 ### Future Features
 - Allow player to input name.
@@ -57,6 +67,9 @@
 - Generate colored text for all the print messages.
 
 ## Data Model
+
+- For the game Variables class a series of dictionaries were used, containting integers, strings and string arrays
+- The gameplay functions, the score keeping and the endgame prompting loop, involve while loops with boolean statements and if/elif/else statements. 
 
 ## Testing
 - Passed the code through the PEP8 validator successfully and no errors were returned!
@@ -67,7 +80,6 @@
 - A persisten bug that was exiting the game when pressing 'enter' in the end of the game when the player is prompted to play again (y/n).
 - The solution for this issue was to add another line of code to the while loop in the play_again function.
 ![play_again](documentation/validator/bug_fix.png)
-- 
 
 ### Remaining Bugs
 - No bugs remaining
