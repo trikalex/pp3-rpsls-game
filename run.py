@@ -33,7 +33,7 @@ class Variables:
     graphics = {
         "rock": "🧱",
         "paper": "🧻",
-        "scissors": "✂️ ",
+        "scissors": "✂️",
         "lizard": "🦎",
         "spock": "🖖",
     }
