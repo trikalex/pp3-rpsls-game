@@ -96,11 +96,11 @@ def display_scoreboard():
     Scoreboard function
     """
     print('Scoreboard:')
-    print('=====================================')
+    print("===========================================")
     print(f"Player: {Variables.scoreboard['player']}")
-    print('=====================================')
+    print("===========================================")
     print(f"Computer: {Variables.scoreboard['computer']}")
-    print('=====================================')
+    print("===========================================")
     if Variables.scoreboard["computer"] < 5 and Variables.scoreboard["player"] < 5:  # noqa
         input('Please press enter to continue!')
 
