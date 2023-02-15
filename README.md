@@ -69,7 +69,8 @@
 ## Data Model
 
 - For the game Variables class a series of dictionaries were used, containting integers, strings and string arrays
-- The gameplay functions, the score keeping and the endgame prompting loop, involve while loops with boolean statements and if/elif/else statements. 
+- For the win combinations a dictionary was created with each of five elements (Rock, Paper, Scissors etc) as a key and the loosing combinations assigned as value (string array) per win element.
+- The gameplay functions, the score keeping and the endgame prompting loop, involve while loops with boolean statements and if/elif/else statements.
 
 ## Testing
 - Passed the code through the PEP8 validator successfully and no errors were returned!
