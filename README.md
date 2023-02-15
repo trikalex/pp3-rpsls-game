@@ -14,13 +14,34 @@
 ## Features
 
 ### Existing Features
-- 
+- Game launch menu
+	- When "Run Program" is pressed in the Heroku terminal the game is launched and it will display the menu screen with:
+	- The game title on top + the representing graphic emojis
+	- A welcome message
+	- A three options menu for the player
+
 ![Launch-menu](/documentation/app/launchgame_menu.png)
+
+- Choosing [1] (num key) will display the game rules, as see below
+
 ![Game-rules](/documentation/app/game_rules1.png)
+
+- In order to go back to the main menu the Player will have to press Enter
+- Sellecting [2] on the numeric key pad will start the game 
+
 ![Game-play1](/documentation/app/gameplay1.png)
+
+- The user will be prompted to sellect one of the five options (Rock Paper Scissors Lizzard or Spock) either by numeric key or by typing the name of the selected option
+- Once an option was selected, the computer will generate a random choice against the player and the Scoreboard of the round will be displayed, showing the sellected moves, the score and wether the Player won or lost the round
+
 ![Game-play](/documentation/app/gameplay.png)
 
+- In order to continue, the Player will have to hit enter after each round
+- Some of the rounds will be a "Draw" which will obviously keep te score the same, so the game will continue
+
 ![Draw](/documentation/app/draw.png)
+
+
 
 ![Winner](documentation/app/winner.png)
 
@@ -31,33 +52,33 @@
 - 
 
 ### Future Features
-- Allow player to input name
-- Allow two human players to play against each other
-- Generate colored text for Menu, game Options, Instructions, Scoreboard etc.
+- Allow player to input name.
+- Allow two human players to play against each other.
+- Generate colored text for all the print messages.
 
 ## Data Model
 
 ## Testing
 - Passed the code through the PEP8 validator successfully and no errors were returned!
-![PEP8](documentation/validator/pep8.png)
-
-- Tested extensively in the Gitpod terminal and no errors were returned from the run.py file!
-![gitpod](documentation/validator/gitpodyml.png)
-![gitpod-small](documentation/validator/gitpod.png)
-
-- Tested in the Code Institute Heroku terminal
-- 
+- Tested extensively with the Gitpod terminal in the process of debugging and restructuring the code more efficiently
+- Tested the application in the Code Institute Heroku terminal
 
 ### Bugs
-- 
-- 
+- A persisten bug that was exiting the game when pressing 'enter' in the end of the game when the player is prompted to play again (y/n).
+- The solution for this issue was to add another line of code to the while loop in the play_again function.
+![play_again](documentation/validator/bug_fix.png)
 - 
 
 ### Remaining Bugs
-- 
+- No bugs remaining
 
 ### Validator Test
 - PEP8
+	- No errors returned when passing the code through PEP8online.com
+	- ![PEP8](documentation/validator/pep8.png)
+- Also in the Gitpod terminal (under the PROBLEMS tab) no errors were returned from the run.py file.
+	- ![gitpod](documentation/validator/gitpodyml.png)
+	- ![gitpod-small](documentation/validator/gitpod.png)
 
 ## Deployment
 
@@ -144,8 +165,25 @@ You can fork this repository by using the following steps:
 3. Once clicked, you should now have a copy of the original repository in your own GitHub account!
 
 ### Local VS Deployment
-
-- 
-Use this space to discuss any differences between the local version you've developed, and the live deployment site on Heroku.
+- No noticeable differences between the deployed application compared to the local developed one.
 
 ## Credits
+
+### Code
+
+- Most of the code generated through the creation of this application was learned in the Python Essentials module
+and also through the **Love Sandwiches Walkthrough Project**.
+- As a source of inspiration also the following youtube channel was used: [Arjan Codes](https://www.youtube.com/@ArjanCodes)
+
+### Media & Content
+
+- The emoji graphics used in this game were taken from [emojidb.org](https://emojidb.org/rock-emojis)
+- [wikiHow](https://www.wikihow.com/Play-Rock-Paper-Scissors-Lizard-Spock) for the game rules and extended explanations
+
+### Platform
+
+- Code institute for the Heroku deployment terminal
+
+### Acknowledgements
+
+- I would like to thank my Code Institute mentor, Tim Nelson for his essential help that made it possible to create and successfully finalize this project!
