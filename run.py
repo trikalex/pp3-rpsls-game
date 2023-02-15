@@ -31,11 +31,11 @@ class Variables:
 
     # ASCII graphics dictionary
     graphics = {
-        "rock": "🧱",
-        "paper": "🧻",
-        "scissors": "✂️",
-        "lizard": "🦎",
-        "spock": "🖖",
+        "rock": "🧱 ",
+        "paper": "🧻 ",
+        "scissors": "✂️ ",
+        "lizard": "🦎 ",
+        "spock": "🖖 ",
     }
 
     # Scoreboard
