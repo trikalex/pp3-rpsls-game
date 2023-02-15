@@ -43,13 +43,17 @@ class Variables:
 
 
 # Game
-# Terminal reset function
 def reset_terminal():
+    """
+    Terminal reset function
+    """
     os.system("cls" if os.name == "nt" else "clear")
 
 
-# Gameplay function
 def play_game():
+    """
+    Gameplay function
+    """
     while True:
         reset_terminal()
         player_num = input(
@@ -105,9 +109,10 @@ def display_scoreboard():
         input('Please press enter to continue!')
 
 
-# Keeping the score, prompting the player to play again 'y/n'
-# Calling the end_game() function for the winner
 def play_again():
+    """
+    Keeping the score, prompting the player to play again 'y/n'
+    """
     while True:
         again = input(
             "Do you want to play again? (yes/no)\n"
@@ -128,8 +133,10 @@ def play_again():
             print("Invalid choice! Please try again.")
 
 
-# Win or Loose situation function
 def end_game():
+    """
+    Win or Loose situation function
+    """
     reset_terminal()
     if Variables.scoreboard["player"] == 5:
         print(
@@ -170,9 +177,12 @@ def display_rules():
     )
 
 
-# Game load function
-# Display menu options for user
 def load_game():
+    """
+    Game load function
+    Display menu options for user
+    Calling the end_game function
+    """
     while True:
         reset_terminal()
         player = input(
