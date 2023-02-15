@@ -4,6 +4,8 @@
 
 - [The live version of the game can be found here!](https://pp3-rpsls.herokuapp.com/)
 
+![Home-screen](documentation/app/menu_screen.png)
+
 ## How To Play
 - Rock Paper Scissors Lizzard and Spock is a variation of the well known Rock Paper Scissors interactive hand game, that is usually played between two people, in which each player simultaneously forms one of three shapes with an outstretched hand. 
 - These shapes are "rock", "paper", and "scissors", which in our case will add the two extra elements, "Lizzard" and "Spock".
@@ -13,6 +15,18 @@
 
 ### Existing Features
 - 
+![Launch-menu](/documentation/app/launchgame_menu.png)
+![Game-rules](/documentation/app/game_rules1.png)
+![Game-play1](/documentation/app/gameplay1.png)
+![Game-play](/documentation/app/gameplay.png)
+
+![Draw](/documentation/app/draw.png)
+
+![Winner](documentation/app/winner.png)
+
+![Looser](documentation/app/loser.png)
+
+![Game-end](documentation/app/game_end.png)
 - 
 - 
 
@@ -25,7 +39,12 @@
 
 ## Testing
 - Passed the code through the PEP8 validator successfully and no errors were returned!
-- Tested extensively in the Gitpod terminal. 
+![PEP8](documentation/validator/pep8.png)
+
+- Tested extensively in the Gitpod terminal and no errors were returned from the run.py file!
+![gitpod](documentation/validator/gitpodyml.png)
+![gitpod-small](documentation/validator/gitpod.png)
+
 - Tested in the Code Institute Heroku terminal
 - 
 
